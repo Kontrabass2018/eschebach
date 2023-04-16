@@ -15,7 +15,7 @@ nmes = Int(ceil(end_of_track / tpq / 4))
 mindur = Int(tpq / 4)
 pitches = [Int(i.pitch) for track in tracks for i in track]
 nnotes = length(pitches)
-mean_notes =  Int(floor(nnotes / 25 / 2))
+mean_notes =  Int(floor(nnotes / nmes / length(tracks)))
 pitch_range = [min(pitches...), max(pitches...)]
 function compute_sequence_length( nbNotes::Int, nmes::Int, nbTracks::Int, pitch_range::Int; mespos_exp=2,dur_exp=2)
     pitch_exp = Int(ceil(log(4, pitch_range)))
